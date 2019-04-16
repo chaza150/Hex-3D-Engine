@@ -24,7 +24,7 @@ public class GamePanel extends JPanel {
 		super.paintComponent(g);
 		
 		g.drawImage(sceneImage, 0, 0, null);
-		g.drawString("Click and drag to rotate", 20, 40);
+		g.drawString("Click and drag to rotate", 350, 40);
 	}
 	
 	
