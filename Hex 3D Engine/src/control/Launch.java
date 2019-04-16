@@ -17,7 +17,7 @@ public class Launch {
 		//Low resolution mode to help with testing performance (Reduces ray tracing load)
 		boolean lowResMode = true;
 		
-		String fileName = "teapot.obj";		//Filename of .obj (Only supported file type) file
+		String fileName = "susanne.obj";		//Filename of .obj (Only supported file type) file
 		ModelReader reader = new ModelReader();		//Reader for the .obj file
 		Mesh importMesh = reader.importMesh(fileName);		//Convert .obj file to a mesh
 		
