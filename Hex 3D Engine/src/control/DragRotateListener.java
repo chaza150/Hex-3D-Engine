@@ -17,12 +17,20 @@ public class DragRotateListener implements MouseMotionListener, MouseListener {
 	private Point origin = null;	// Coordinate acting as s=drag start point
 	private boolean isDragged;		// Check for whether currently dragging
 
+	/**
+	 * Create a drag rotate listener giving the camera to judge rotations
+	 * from and the object that is to be rotated on dragging.
+	 * @param camera Camera to judge rotation drags
+	 * @param dragObject Object to be rotated by dragging
+	 */
 	public DragRotateListener(Camera camera, Object3D dragObject) {
 		this.camera = camera;
 		this.dragObject = dragObject;
 	}
 
-	//On drag: Rotate the object about an axis defined by drag direction
+	/**
+	 * On drag: Rotate the object about an axis defined by drag direction
+	 */
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		
@@ -50,41 +58,19 @@ public class DragRotateListener implements MouseMotionListener, MouseListener {
 
 	}
 
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
+	public void mouseMoved(MouseEvent e) {}
+	public void mouseClicked(MouseEvent e) {}
+	public void mousePressed(MouseEvent e) {}
 
-	}
-
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	//On release: Disengage dragging
+	/**
+	 * On release: Disengage dragging
+	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		isDragged = false;
-		
 	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	
+	public void mouseEntered(MouseEvent e) {}
+	public void mouseExited(MouseEvent e) {}
 
 }

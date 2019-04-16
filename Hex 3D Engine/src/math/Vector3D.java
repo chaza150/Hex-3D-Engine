@@ -2,9 +2,9 @@ package math;
 
 public class Vector3D {
 	
-	private float x;
-	private float y;
-	private float z;
+	private float x; //X-Component
+	private float y; //Y-Component
+	private float z; //Z-Component
 	
 	/**
 	 * Create a vector from separate components

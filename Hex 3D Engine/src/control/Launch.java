@@ -14,15 +14,23 @@ public class Launch {
 
 	public static void main(String[] args) {
 		
-		String fileName = "susanne.obj";		//Filename of .obj (Only supported file type) file
-		ModelReader reader = new ModelReader();	//Reader for the .obj file
-		Mesh importMesh = reader.importMesh(fileName);	//Convert .obj file to a mesh
+		//Low resolution mode to help with testing performance (Reduces ray tracing load)
+		boolean lowResMode = true;
+		
+		String fileName = "teapot.obj";		//Filename of .obj (Only supported file type) file
+		ModelReader reader = new ModelReader();		//Reader for the .obj file
+		Mesh importMesh = reader.importMesh(fileName);		//Convert .obj file to a mesh
 		
 		//Master scene
 		Scene scene = new Scene();
 		
-		//Add Main Camera
-		Camera camera = new Camera(new Vector3D(-6,0,0), new Vector3D(1,0,0), 2, new Dimension(1200,700), new Dimension(1200,700), (float) (Math.PI/1.8));
+		//Add Main Camera with ray resolution dependent on low resolution mode on/off
+		Camera camera;
+		if(!lowResMode) {
+			camera = new Camera(new Vector3D(-5,0,0), new Vector3D(1,0,0), 2, new Dimension(800,550), new Dimension(800,550), (float) (Math.PI/2));
+		} else {//(600,413)
+			camera = new Camera(new Vector3D(-5,0,0), new Vector3D(1,0,0), 2, new Dimension(600,413), new Dimension(800,550), (float) (Math.PI/2));
+		}
 		
 		scene.addObject(camera);
 		scene.setMainCamera(camera);
@@ -40,7 +48,7 @@ public class Launch {
 		scene.addObject(object);
 		
 		//Setup and show window
-		MainWindow window = new MainWindow(1210, 735, camera, object);
+		MainWindow window = new MainWindow(810, 585, camera, object);
 		
 		window.displayWindow();
 
